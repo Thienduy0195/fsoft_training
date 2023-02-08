@@ -46,7 +46,6 @@ public class CandidateController {
 				break;
 			default:
 				System.err.println("You have enter a wrong choice, please try again!");
-//				employeeManagement();
 				scanner.nextLine();
 			}
 		}
