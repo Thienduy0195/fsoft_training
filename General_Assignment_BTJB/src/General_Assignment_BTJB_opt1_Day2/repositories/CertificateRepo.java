@@ -6,6 +6,10 @@ import java.sql.SQLException;
 
 import General_Assignment_BTJB_opt1_Day2.models.Certificated;
 
+/**
+ * @author DuyNT58
+ * @Author_birth_date: 1995-01-01
+ */
 public class CertificateRepo implements ICertificateRepo {
 
 	private static final String INSERT_CERTIFICATE = "select * from Certificate;";
@@ -16,6 +20,11 @@ public class CertificateRepo implements ICertificateRepo {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * @author DuyNT58
+	 * @Author_birth_date: 1995-01-01
+	 * @param certificate Add new Certificate
+	 */
 	@Override
 	public void saveCertificate(Certificated certificate) {
 		try {

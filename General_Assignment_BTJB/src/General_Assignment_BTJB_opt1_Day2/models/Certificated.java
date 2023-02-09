@@ -1,5 +1,10 @@
 package General_Assignment_BTJB_opt1_Day2.models;
 
+
+/**
+ * @author DuyNT58
+ * Author birth date: 1995-01-01
+ */
 public class Certificated {
 
 	private Integer certificatedId;

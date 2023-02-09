@@ -1,5 +1,11 @@
 package General_Assignment_BTJB_opt1_Day2.models;
 
+
+/**
+ * @author DuyNT58
+ * Author birth date: 1995-01-01
+ * Class CanditateDTO for method getAllCandidate, InsertCandidate
+ */
 public class CandidateDTO {
 
 	public CandidateDTO() {

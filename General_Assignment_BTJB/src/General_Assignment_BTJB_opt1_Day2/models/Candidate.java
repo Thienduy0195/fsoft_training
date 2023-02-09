@@ -3,6 +3,9 @@ package General_Assignment_BTJB_opt1_Day2.models;
 import java.security.cert.Certificate;
 import java.util.List;
 
+/**
+ * @author DuyNT58 Author birth date: 1995-01-01
+ */
 public abstract class Candidate {
 	protected Integer candidateID;
 	protected String fullName;

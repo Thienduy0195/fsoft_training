@@ -6,6 +6,10 @@ import General_Assignment_BTJB_opt1_Day2.services.CandidateServiceImpl;
 import General_Assignment_BTJB_opt1_Day2.services.CertificateServiceImpl;
 import General_Assignment_BTJB_opt1_Day2.services.ICertificateService;
 
+/**
+ * @author DuyNT58
+ * @Author_birth_date: 1995-01-01
+ */
 public class CandidateController {
 	public static Scanner scanner = new Scanner(System.in);
 
@@ -38,7 +42,7 @@ public class CandidateController {
 				candidateServiceImpl.getAllCandidateName();
 				break;
 			case "5":
-				certificateService.saveCertificate(null);
+				certificateService.saveCertificate(-1);
 				break;
 			case "6":
 				System.out.println("You finished the program, thank you! ");

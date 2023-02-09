@@ -8,7 +8,7 @@ import General_Assignment_BTJB_opt1_Day2.models.Candidate;
 import General_Assignment_BTJB_opt1_Day2.models.CandidateDTO;
 import General_Assignment_BTJB_opt1_Day2.repositories.CandidateRepo;
 import General_Assignment_BTJB_opt1_Day2.repositories.ICandidateRepo;
-import General_Assignment_BTJB_opt1_Day2.utils.comparator.SortCandidateComparator;
+import General_Assignment_BTJB_opt1_Day2.utils.comparator.SortCandidateByCandidateTypeACSBirthdateDSCComparator;
 import General_Assignment_BTJB_opt1_Day2.utils.exception.BirthDayException;
 import General_Assignment_BTJB_opt1_Day2.utils.exception.EmailException;
 
@@ -26,10 +26,17 @@ public class CandidateServiceImpl implements ICandidateService {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+	 * @author DuyNT58 Author birth date: 1995-01-01
+	 * @return Candidate List Get all candidate from database
+	 */
 	@Override
 	public List<Candidate> getCandidates() {
 		List<Candidate> candidates = candidateRepo.sellectAllCandidate();
-		Collections.sort(candidates, new SortCandidateComparator());
+		Collections.sort(candidates, new SortCandidateByCandidateTypeACSBirthdateDSCComparator());
+//		candidates.sort((c1, c2) -> {
+//			return c1.getFullName().compareTo(c2.getFullName());
+//		});
 		if (candidates.isEmpty()) {
 			System.out.println("No candidate in databse");
 		} else {
@@ -40,18 +47,29 @@ public class CandidateServiceImpl implements ICandidateService {
 		return candidates;
 	}
 
+	/**
+	 * @author DuyNT58 Author birth date: 1995-01-01
+	 * @return All CandidateFullName Get all candidate full name from database
+	 */
 	@Override
 	public StringBuffer getAllCandidateName() {
 		return candidateRepo.sellectAllCandidateName();
 	}
 
+	/**
+	 * @author DuyNT58 Author birth date: 1995-01-01
+	 * @param id
+	 * @param attribute
+	 * @param value     Update candidate on each attribute base on candidate id
+	 */
 	@Override
 	public void updateCandidate() {
-		List<Candidate> candidates = getCandidates();
-		System.out.println("Choose the id of the candidate that you want to update:");
-		Integer id = inputt.nextInt();
-		for (Candidate candidate : candidates) {
-			if (candidate.getCandidateID() == id) {
+		while (true) {
+			getCandidates();
+			System.out.println("Choose the id of the candidate that you want to update:");
+			Integer id = inputt.nextInt();
+			Candidate candidate = candidateRepo.findCandidateById(id);
+			if (candidate != null) {
 				String[] attributeArrayStrings = candidate.getAttributeName().split(",");
 				System.out.println("What value which you want to update?");
 				for (int i = 1; i < attributeArrayStrings.length; i++) {
@@ -64,12 +82,21 @@ public class CandidateServiceImpl implements ICandidateService {
 				String value = scanner.nextLine();
 				if (value != null) {
 					candidateRepo.updateCandidate(id, attribute, value);
+					System.out.println("Update " + attribute + " successfully!");
+					break;
 				}
-				System.out.println("Update " + attribute + " successfully!");
+
+			} else {
+				System.out.println("Invalid candidate Id, please try again!");
 			}
 		}
+
 	}
 
+	/**
+	 * @author DuyNT58
+	 * @Author_birth_date: 1995-01-01 TODO insert new candidate info into database
+	 */
 	@Override
 	public void addNewCandidate() {
 		boolean check = true;
@@ -109,6 +136,12 @@ public class CandidateServiceImpl implements ICandidateService {
 
 	}
 
+	/**
+	 * @author DuyNT58
+	 * @Author_birth_date: 1995-01-01
+	 * @param candidateTypeId
+	 * @TODO add new candidate where candidateType = Experience
+	 */
 	public void addNewExperienceCandidate(Integer candidateTypeId) {
 		try {
 			candidateDTO.setCandidateTypeId(candidateTypeId);
@@ -145,6 +178,12 @@ public class CandidateServiceImpl implements ICandidateService {
 		}
 	}
 
+	/**
+	 * @author DuyNT58
+	 * @Author_birth_date: 1995-01-01
+	 * @param candidateTypeId
+	 * @TODO add new candidate where candidateType = Fresher
+	 */
 	public void addNewFresherCandidate(Integer candidateTypeId) {
 		try {
 			candidateDTO.setCandidateTypeId(candidateTypeId);
@@ -186,6 +225,12 @@ public class CandidateServiceImpl implements ICandidateService {
 		}
 	}
 
+	/**
+	 * @author DuyNT58
+	 * @Author_birth_date: 1995-01-01
+	 * @param candidateTypeId
+	 * @TODO add new candidate where candidateType = Intern
+	 */
 	public void addNewInternCandidate(Integer candidateTypeId) {
 		try {
 			candidateDTO.setCandidateTypeId(candidateTypeId);
@@ -227,11 +272,23 @@ public class CandidateServiceImpl implements ICandidateService {
 		}
 	}
 
+	/**
+	 * @author DuyNT58 Author birth date: 1995-01-01
+	 * @return CandidateId Get candidate id for method add new Certificate
+	 *         referrences to candidate by candidate id
+	 */
 	@Override
 	public Integer getLastCandidateId() {
 		return candidateRepo.getLastCandidateId();
 	}
 
+	/**
+	 * @author DuyNT58
+	 * @Author_birth_date: 1995-01-01
+	 * @param id
+	 * @return Candidate
+	 * @TODO find candidate from database through candidate ID
+	 */
 	@Override
 	public Candidate finCandidateById(Integer id) {
 		return candidateRepo.findCandidateById(id);

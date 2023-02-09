@@ -14,6 +14,10 @@ import General_Assignment_BTJB_opt1_Day2.models.ExperienceCandidate;
 import General_Assignment_BTJB_opt1_Day2.models.FresherCandidate;
 import General_Assignment_BTJB_opt1_Day2.models.InternCandidate;
 
+/**
+ * @author DuyNT58
+ * @Author_birth_date: 1995-01-01
+ */
 public class CandidateRepo implements ICandidateRepo {
 
 	private static String SELLECT_CANDIDATE_SQL = "select CandidateId,FullName,BirthDate,Phone,"
@@ -28,6 +32,11 @@ public class CandidateRepo implements ICandidateRepo {
 	PreparedStatement stmt = null;
 	ResultSet rs = null;
 
+	/**
+	 * @author DuyNT58
+	 * @Author_birth_date: 1995-01-01
+	 * @return Candidate list Get all candidate from database
+	 */
 	@Override
 	public List<Candidate> sellectAllCandidate() {
 		List<Candidate> candidates = new ArrayList<>();
@@ -56,6 +65,11 @@ public class CandidateRepo implements ICandidateRepo {
 		return candidates;
 	}
 
+	/**
+	 * @author DuyNT58
+	 * @Author_birth_date: 1995-01-01
+	 * @param CandidateDTO Insert candidate info into database by Candidate DTO
+	 */
 	@Override
 	public void insertCandidate(CandidateDTO candidate) {
 		try {
@@ -89,6 +103,11 @@ public class CandidateRepo implements ICandidateRepo {
 		}
 	}
 
+	/**
+	 * @author DuyNT58
+	 * @Author_birth_date: 1995-01-01
+	 * @return All CandidateFullName Get all candidate full name from database
+	 */
 	@Override
 	public StringBuffer sellectAllCandidateName() {
 		StringBuffer stringBuffer = new StringBuffer();
@@ -113,6 +132,13 @@ public class CandidateRepo implements ICandidateRepo {
 		return stringBuffer;
 	}
 
+	/**
+	 * @author DuyNT58
+	 * @Author_birth_date: 1995-01-01
+	 * @param id
+	 * @param attribute
+	 * @param value     Update candidate on each attribute base on candidate id
+	 */
 	@Override
 	public void updateCandidate(Integer id, String attribute, String value) {
 
@@ -137,12 +163,17 @@ public class CandidateRepo implements ICandidateRepo {
 		}
 	}
 
+	/**
+	 * @author DuyNT58
+	 * @Author_birth_date: 1995-01-01
+	 * @return CandidateId Get candidate id for method add new Certificate
+	 *         referrences to candidate by candidate id
+	 */
 	@Override
 	public Integer getLastCandidateId() {
 		try {
 			stmt = BaseRepository.getConnection().prepareStatement(SELLECT_LAX_CANDIDATE_ID);
 			rs = stmt.executeQuery();
-
 			while (rs.next()) {
 				return rs.getInt(1);
 			}
@@ -158,6 +189,12 @@ public class CandidateRepo implements ICandidateRepo {
 		return null;
 	}
 
+	/**
+	 * @author DuyNT58
+	 * @Author_birth_date: 1995-01-01
+	 * @param id
+	 * @return Get candidate info by candidate id
+	 */
 	@Override
 	public Candidate findCandidateById(Integer id) {
 		Candidate candidate = null;
