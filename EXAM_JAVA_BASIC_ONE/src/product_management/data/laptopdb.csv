@@ -1,0 +1,17 @@
+typeId,laptopId,name,brand,ram,ssd,resolution,cpu,importDate,price,touchScreen,numpad,macType,cpuType,macTypeCharge
+1,LT000001,Asus X540,Asus,8GB,256GB,FullHD,Intel Core I5,5/16/2020,645,Yes,No,,,
+1,LT000002,Dell Inspire,Dell,8GB,256GB,QHD,Intel Core I7,5/16/2020,450,No,Yes,,,
+1,LT000003,Dell Attitude,Dell,16GB,512GB,QHD,Intel Core I3,5/16/2024,380,Yes,No,,,
+1,LT000004,HP Pro,HP,32GB,512GB,FullHD,Ryzen 7,5/16/2020,420,Yes,No,,,
+1,LT00005,Asus Vivobook,Asus,16GB,256GB,FullHD,Ryzen 5,5/16/2024,500,No,Yes,,,
+2,LT000006,Air 2019,Apple,16GB,256GB,QHD,M1,5/16/2020,650,,,Air,ARM,TypeC
+2,LT0007,Air M2 2022,Apple,8GB,512GB,FullHD,M2,3/12/2022,600,,,Air,ARM,Macsafe
+2,LT0008,Pro M2 2022,Apple,16GB,128GB,FullHD,M2,3/24/2022,250,,,Pro,ARM,TypeC
+1,LT000009,Asus X540,Asus,8GB,256GB,FullHD,Intel Core I5,5/16/2020,645,Yes,No,,,
+1,LT000010,Dell Inspire,Dell,8GB,256GB,QHD,Intel Core I7,5/16/2020,450,No,Yes,,,
+1,LT000003,Dell Attitude,Dell,16GB,512GB,QHD,Intel Core I3,5/16/2020,380,Yes,No,,,
+1,LT000004,HP Pro,HP,32GB,512GB,FullHD,Ryzen 7,5/16/2020,420,Yes,No,,,
+1,LT000015,Asus Vivobook,Asus,16GB,256GB,FullHD,Ryzen 5,5/16/2020,500,No,Yes,,,
+2,LT000006,Air 2019,Apple,16GB,256GB,QHD,M1,5/16/2024,650,,,Air,ARM,TypeC
+2,LT0007,Air M2 2022,Apple,8GB,512GB,FullHD,M2,3/12/2022,600,,,Air,ARM,Macsafe
+2,LT0008,Pro M2 2022,Apple,16GB,128GB,FullHD,M2,3/24/2022,250,,,Pro,ARM,TypeC
