@@ -51,7 +51,7 @@ public class LaptopMacbook extends Laptop {
 	public String showInfo() {
 		return "LaptopMacbook [typeId=" + typeId + ", laptopId=" + laptopId + ", name=" + name + ", brand=" + brand
 				+ ", ram=" + ram + ", ssd=" + ssd + ", resolution=" + resolution + ", cpu=" + cpu + ", importDate="
-				+ importDate + ", price=" + price + "macType=" + macType + ", cpuType=" + cpuType + ", macTypeCharge="
+				+ importDate + ", price=" + price + ", macType=" + macType + ", cpuType=" + cpuType + ", macTypeCharge="
 				+ macTypeCharge + "]";
 	}
 

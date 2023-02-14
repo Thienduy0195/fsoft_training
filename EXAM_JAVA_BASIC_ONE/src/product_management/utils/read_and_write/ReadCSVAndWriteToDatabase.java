@@ -69,13 +69,22 @@ public class ReadCSVAndWriteToDatabase {
 	}
 
 	public static void writeFile(String path, String str) {
+		BufferedWriter bw = null;
 		try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter(path, true));
+			bw = new BufferedWriter(new FileWriter(path, true));
 			bw.write(str);
 			bw.newLine();
-			bw.close();
 		} catch (IOException e) {
 			System.out.println("The copy file is not found!, please create copy file!");
+		} finally {
+			if (bw != null) {
+				try {
+					bw.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
 	}
 

@@ -1,8 +1,6 @@
 package product_management.services;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,18 +11,19 @@ import product_management.utils.exception.DuplicateIdException;
 import product_management.utils.exception.IdInvalidException;
 import product_management.utils.exception.InvalidImportDateException;
 import product_management.utils.read_and_write.ReadCSVAndWriteToDatabase;
+import product_management.utils.sort.SortByBrandAscPriceDesc;
+import product_management.utils.validates.Validate;
 
 public class ServiceImpl implements IService {
-
-	public static final String REGEX_ID = "^LT+[0-9]{6}$"; // check email of person
 
 	IRepo repo = new RepoImpl();
 	static Scanner scanner = new Scanner(System.in);
 
-	public ServiceImpl() {
-		// TODO Auto-generated constructor stub
-	}
-
+	/**
+	 * @author DuyNT58
+	 * @Author_birth_date: 1995-01-01
+	 * @TODO read line from csv file and insert in to db
+	 */
 	@Override
 	public void addNew() {
 		List<Laptop> laptops = ReadCSVAndWriteToDatabase.readFile();
@@ -33,7 +32,7 @@ public class ServiceImpl implements IService {
 			boolean flag = true;
 			try {
 				row++;
-				if (!laptop.getLaptopId().matches(REGEX_ID)) {
+				if (Validate.checkValidIId(laptop.getLaptopId())) {
 					flag = false;
 					throw new IdInvalidException("Laptop id at row " + row + " is in correct!!");
 				}
@@ -41,7 +40,7 @@ public class ServiceImpl implements IService {
 					flag = false;
 					throw new DuplicateIdException("Laptop " + laptop.getLaptopId() + " has duplicate!");
 				}
-				if (checkImportDate(laptop.getImportDate())) {
+				if (Validate.checkImportDate(laptop.getImportDate())) {
 					flag = false;
 					throw new InvalidImportDateException("Import date of row " + row + " are greater than today!");
 				}
@@ -61,15 +60,62 @@ public class ServiceImpl implements IService {
 
 	}
 
-	boolean checkImportDate(String date) {
-		try {
-			Date date1 = new Date();
-			Date date2 = new SimpleDateFormat("dd/MM/yyyy").parse(date);
-			return date1.before(date2);
-		} catch (ParseException e) {
-			e.printStackTrace();
+	/**
+	 * @author DuyNT58
+	 * @Author_birth_date: 1995-01-01
+	 * @param laptops
+	 * @TODO show laptop information which get from db
+	 */
+	@Override
+	public void showInformation(List<Laptop> laptops) {
+		laptops = repo.sellectAll();
+		for (Laptop laptop : laptops) {
+			System.out.println(laptop.showInfo());
 		}
-		return false;
+
+	}
+
+	/**
+	 * @author DuyNT58
+	 * @Author_birth_date: 1995-01-01
+	 * @TODO update price of lap top base on the discount board
+	 */
+	@Override
+	public void updatePrice() {
+		boolean check = true;
+		while (check) {
+			System.out.println("Please enter the brand:");
+			String brand = scanner.nextLine();
+			if (Validate.discountBoard.keySet().contains(brand.toUpperCase())) {
+				if (!repo.updatePrice(Validate.discountBoard.get(brand.toUpperCase()), brand)) {
+					System.out.println("Your input brand does not have any data in database!");
+				} else {
+					System.out.println("Update price with discount " + Validate.discountBoard.get(brand.toUpperCase())
+							+ " for brand " + brand.toUpperCase() + " successfully!");
+					List<Laptop> laptops = repo.sellectAll();
+					Collections.sort(laptops, new SortByBrandAscPriceDesc());
+					for (Laptop laptop : laptops) {
+//						if (laptop.getBrand().toUpperCase().equals(brand.toUpperCase())) {
+//							System.out.println(laptop.showInfo());
+//						}
+						System.out.println(laptop.showInfo());
+					}
+				}
+				check = false;
+			} else {
+				System.out.println("Brand is invalid!");
+			}
+		}
+	}
+
+	@Override
+	public void delete() {
+		repo.delete();
+		List<Laptop> laptops = repo.sellectAll();
+		for (Laptop laptop : laptops) {
+			System.out.println(laptop.showInfo());
+		}
+
 	}
 
 }
