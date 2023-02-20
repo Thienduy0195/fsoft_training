@@ -1,0 +1,15 @@
+CH000122,Samsung S21,6.8,Exynos 1100,8,256,2200000,SamSung,12,1
+XT0001,Xiaomi K40,6.7,SnapDragon 870,6,128,3500000,Xiaomi,China,0
+OD0001,Samsung S10,6.5,Exynos 9820,6,64,5450000,Samsung,1,99,0
+CH0002,Samsung S21,6.8,Exynos 1100,8,256,2200000,SamSung,12,1
+XT0001,Xiaomi K40,6.7,SnapDragon 870,6,128,3500000,Xiaomi,China,0
+OD0002,Samsung S10,6.5,Exynos 9820,6,64,5450000,Samsung,3,99,0
+CH0003,Samsung S21,6.8,Exynos 1100,8,256,2200000,SamSung,12,1
+XT0003,Xiaomi K40,6.7,SnapDragon 870,6,128,3500000,Xiaomi,China,0
+OD0003,Samsung S10,6.5,Exynos 9820,6,64,5450000,Samsung,1,99,0
+CH0004,Samsung S21,6.8,Exynos 1100,8,256,2200000,SamSung,12,1
+XT0004,Xiaomi K40,6.7,SnapDragon 870,6,128,3500000,Xiaomi,China,0
+OD0004,Samsung S10,6.5,Exynos 9820,6,64,5450000,Samsung,1,99,0
+CH0005,Samsung S21,6.8,Exynos 1100,8,256,2200000,SamSung,12,3
+XT0005,Xiaomi K40,6.7,SnapDragon 870,6,128,3500000,Xiaomi,China,0
+OD0005,Samsung S10,6.5,Exynos 9820,6,64,5450000,Samsung,1,99,0
