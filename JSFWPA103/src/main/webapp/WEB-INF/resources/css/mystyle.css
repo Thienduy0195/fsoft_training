@@ -1,0 +1,19 @@
+.main {
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 4px
+}
+.main-login {
+    width: 30%;
+    margin: 0 auto;
+    border-radius: 4px
+}
+.top-title {
+    background-color: rgb(230, 219, 219);
+    color: grey;
+    height: 50px;
+    line-height: 50px;
+}
+button {
+    width: 100%;
+}
